@@ -16,6 +16,7 @@ def fetch_libraries():
 
     response.raise_for_status()
     data = response.json()
+    print(data.get("features", [])[0])
     return data.get("features", [])
 
 
@@ -38,7 +39,7 @@ def extract_library_info(lib):
         "street": addr.get("street_address"),
         "postal_code": addr.get("postal_code"),
         "city": addr.get("address_locality"),
-        "region": addr.get("address_region"),
+        "region": properties["district"],
         "country": addr.get("address_country"),
         "latitude": coords[1],
         "longitude": coords[0],
