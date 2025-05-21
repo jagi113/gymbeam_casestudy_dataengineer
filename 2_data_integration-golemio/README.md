@@ -6,8 +6,7 @@
 
 ```bash
 python3 -m venv venv
-source venv/bin/activate        # na Linux/MacOS
-venv\Scripts\activate         # na Windows
+source venv/bin/activate       
 pip install -r requirements.txt
 ```
 
@@ -18,12 +17,13 @@ pip install -r requirements.txt
 Ulož svoj API kľúč do súboru `.env` vedľa `extractor.py` v tomto formáte:
 
 ```
-API_KEY=*your_api_key*
+API_KEY=your_api_key
 ```
 
 ---
 
 ## 3. Vytvorenie cron jobu
+Cron job je možné vytvoriť iba na Linuxe!
 
 Na vytvorenie cron jobu spusti v termináli:
 
