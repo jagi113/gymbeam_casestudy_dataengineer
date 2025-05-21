@@ -16,7 +16,6 @@ def fetch_libraries():
 
     response.raise_for_status()
     data = response.json()
-    print(data.get("features", [])[0])
     return data.get("features", [])
 
 
@@ -27,10 +26,9 @@ def extract_library_info(lib):
 
     opening_hours = []
     for entry in properties.get("opening_hours", []):
-        if entry["is_default"] == True:
-            opening_hours.append(
-                f'{entry["day_of_week"]}: {entry["opens"]}–{entry["closes"]}'
-            )
+        opening_hours.append(
+            f'{entry["day_of_week"]}: {entry["opens"]}–{entry["closes"]} ({entry["description"]})'
+        )
     opening_text = "; ".join(opening_hours)
 
     return {
